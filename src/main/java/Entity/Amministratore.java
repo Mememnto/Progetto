@@ -1,5 +1,7 @@
 package Entity;
 
+import java.util.ArrayList;
+
 public class Amministratore extends Utente {
 
     public Amministratore(String nome, String cognome, String email, String ruolo, String via, int civico, String citta, int cap) {
@@ -17,6 +19,15 @@ public class Amministratore extends Utente {
         }
         return res;
     }
+
+    /*public int GetVolOrdini(ArrayList<Ordine> OrdiniConsiderati){
+        for(int i=0;i<OrdiniConsiderati.size();i++){
+            Ordine o= OrdiniConsiderati.get(i);
+            //o.carrelloVirtuale.prezzo;
+        }
+       // int tot_pagato=
+        return tot_pagato/OrdiniConsiderati.size();
+    }*/
 
 
 

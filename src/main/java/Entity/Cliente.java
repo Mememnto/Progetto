@@ -26,6 +26,8 @@ public class Cliente extends Utente {
 
     private int CreaOrdine(){
         //Implementazione specifica
+        //ArrayList<CarrelloVirtuale> cv =
+        //Ordine o=new Ordine("Creato",)
         return 0;
     }
 

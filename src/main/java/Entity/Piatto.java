@@ -1,5 +1,9 @@
 package Entity;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Piatto {
     String nomePiatto;
     StringBuilder descrizione;
@@ -17,11 +21,10 @@ public class Piatto {
     }
     public int getPrezzo() { return prezzo; }
 
-    public void setDescrizione(StringBuilder descrizione) {
+    void setDescrizione(StringBuilder descrizione) {
         this.descrizione = descrizione;
     }
-    public void setNomePiatto(String nomePiatto) { this.nomePiatto = nomePiatto; }
-    public void setPrezzo(int prezzo) {
-        this.prezzo = prezzo;
-    }
+    void setNomePiatto(String nomePiatto) { this.nomePiatto = nomePiatto; }
+    void setPrezzo(int prezzo) {    this.prezzo = prezzo;   }
+
 }

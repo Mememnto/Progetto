@@ -32,7 +32,8 @@ public class Ristorante {
             System.out.println("Inserisci il nome del piatto:");
             String nome = sc.nextLine();
             System.out.println("Inserisci la descrizione del piatto:");
-            String descrizione = sc.next();
+            String desc = sc.next();
+            StringBuilder descrizione=new StringBuilder(desc);
             System.out.println("Inserisci il prezzo del piatto:");
             int prezzo = sc.nextInt();
             Piatto p1 = new Piatto(nome, descrizione, prezzo);
