@@ -10,10 +10,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FormHome {
-    private JPanel contentPane;
+    JPanel contentPane;
     private JButton registerButton;
     private JButton loginButton;
     private JLabel logo;
+    private Navigator navigator;
 
 
     {
@@ -66,35 +67,26 @@ public class FormHome {
 
     //DA QUI IN POI è CODICE MIO
 
-    public FormHome() {
+    public FormHome(Navigator navigator) {
+        this.navigator = navigator;
 
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Accesso();
+                navigator.showLogin();
             }
         });
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Register();
+                navigator.showRegister();
             }
         });
     }
 
-    private void Accesso() {
-        Login dialog = new Login();
-        dialog.pack();
-        dialog.setVisible(true);
-    }
 
-    private void Register() {
-        Register dialog = new Register();
-        dialog.pack();
-        dialog.setVisible(true);
-    }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
         FormHome home = new FormHome();
         JFrame framehome = new JFrame();
@@ -106,6 +98,6 @@ public class FormHome {
         framehome.setLocationRelativeTo(null);
         framehome.setVisible(true);
 
-    }
+    }*/
 
 }

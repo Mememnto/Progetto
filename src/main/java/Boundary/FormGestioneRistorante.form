@@ -75,12 +75,12 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="f98bd" class="javax.swing.JButton" binding="indietroButton" default-binding="true">
+          <component id="f98bd" class="javax.swing.JButton" binding="homeButton">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Indietro"/>
+              <text value="Home"/>
             </properties>
           </component>
           <component id="9412e" class="javax.swing.JButton" binding="salvaButton" default-binding="true">

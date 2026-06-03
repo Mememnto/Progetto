@@ -11,36 +11,21 @@ import java.awt.*;
 public class FormListaRistoranti {
     JPanel contentPane;
     private JList ristorantiList;
+    private Navigator navigator;
 
-    public FormListaRistoranti() {
-        ristorantiList.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                String ristoranteSelezionato = (String) ristorantiList.getSelectedValue();
-                if (ristoranteSelezionato != null) {
-                    FormGestioneRistorante fgr = new FormGestioneRistorante();
-                }
-            }
-        });
+    public FormListaRistoranti(Navigator navigator) {
+        this.navigator=navigator;
+
         ristorantiList.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 if(!e.getValueIsAdjusting()){
                     String ristoranteSelezionato = (String) ristorantiList.getSelectedValue();
                     if (ristoranteSelezionato != null) {
-                        FormOrdinazione formOrdinazione = new FormOrdinazione();
-                        formOrdinazione.setNomeRistorante(ristoranteSelezionato); // Set restaurant name for testing
-                        JFrame frameOrdinazione = new JFrame();
-                        frameOrdinazione.setTitle("Ordinazione");
-                        frameOrdinazione.setContentPane(formOrdinazione.contentPane);
-                        frameOrdinazione.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                        frameOrdinazione.setResizable(false);
-                        frameOrdinazione.pack();
-                        frameOrdinazione.setLocationRelativeTo(null);
-                        frameOrdinazione.setVisible(true);
+                        navigator.setNomeRistorante(ristoranteSelezionato);
+                        navigator.showOrdinazione();
                     }
                 }
-
             }
         });
     }
