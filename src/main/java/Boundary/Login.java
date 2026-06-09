@@ -1,5 +1,6 @@
 package Boundary;
 
+import Controller.LoginController;
 import Controller.RegisterController;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
@@ -8,12 +9,15 @@ import com.intellij.uiDesigner.core.Spacer;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Objects;
 
 public class Login extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
     private JTextField ruolotextField;
+    private JTextField emailTextField;
+    private JComboBox ruoloComboBox;
     private Navigator navigator;
 
     public Login(Navigator navigator) {
@@ -51,20 +55,22 @@ public class Login extends JDialog {
     }
 
     private void onOK() {
-        // add your code here
 
-        //codice per verificare i parametri inseriti e SE corrisopondono ad un utente registrato accade qaunto segue:
-        String ruolo = ruolotextField.getText();
-        //
-        if (ruolo.equalsIgnoreCase("Cliente")) {
+        //codice per verificare i parametri inseriti e SE corrisopondono ad un utente registrato accade quanto segue:
+        String email = emailTextField.getText();
+        String ruolo = Objects.requireNonNull(ruoloComboBox.getSelectedItem()).toString();
+        boolean esito = LoginController.login(email, ruolo);
+
+        if (ruolo.equalsIgnoreCase("Cliente") && esito) {
             navigator.showListaRistoranti();
-        } else if (ruolo.equalsIgnoreCase("Ristoratore")) {
+        } else if (ruolo.equalsIgnoreCase("Ristoratore") && esito) {
             navigator.showGestioneRistorante();
         }
-        // ################Bisogna in realtà controllare se l'utente immesso è davvero registrato nel DB####################
+
     }
 
     private void onCancel() {
+        Navigator.clearFields(contentPane);
         navigator.showHome();
     }
 
@@ -97,10 +103,15 @@ public class Login extends JDialog {
         final JLabel label2 = new JLabel();
         label2.setText("Email");
         panel2.add(label2, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        ruolotextField = new JTextField();
-        panel2.add(ruolotextField, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        final JTextField textField1 = new JTextField();
-        panel2.add(textField1, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        emailTextField = new JTextField();
+        panel2.add(emailTextField, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        ruoloComboBox = new JComboBox();
+        final DefaultComboBoxModel defaultComboBoxModel1 = new DefaultComboBoxModel();
+        defaultComboBoxModel1.addElement("CLIENTE");
+        defaultComboBoxModel1.addElement("RISTORATORE");
+        defaultComboBoxModel1.addElement("AMMINISTRATORE");
+        ruoloComboBox.setModel(defaultComboBoxModel1);
+        panel2.add(ruoloComboBox, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel3, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, 1, null, null, null, 0, false));

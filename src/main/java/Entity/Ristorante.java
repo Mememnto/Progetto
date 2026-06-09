@@ -43,10 +43,10 @@ public class Ristorante {
     public Ristorante() {
     }
 
-    public Ristorante(String nome, String descrizione, String via, int civico, String citta, int cap, String giorno, int inizioServizio, int fineServizio, Ristoratore r) {
+    public Ristorante(String nome, String descrizione, String via, String civico, String citta, int cap, String giorno, int inizioServizio, int fineServizio, Ristoratore r) {
         this.nome = nome;
         this.descrizione = descrizione;
-        this.indirizzoRistorante = new Indirizzo(via, civico, citta, cap);
+        this.indirizzoRistorante = new Indirizzo(via, civico, cap, citta);
         this.orariApertura = new ArrayList<>();
         this.menu = new ArrayList<>();
         this.ordiniRicevuti = new ArrayList<>();

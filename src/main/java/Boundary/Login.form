@@ -40,21 +40,25 @@
                   <text value="Email"/>
                 </properties>
               </component>
-              <component id="f4de" class="javax.swing.JTextField" binding="ruolotextField">
-                <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="bd4fb" class="javax.swing.JTextField" default-binding="true">
+              <component id="bd4fb" class="javax.swing.JTextField" binding="emailTextField">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
                 <properties/>
+              </component>
+              <component id="df88d" class="javax.swing.JComboBox" binding="ruoloComboBox">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <model>
+                    <item value="CLIENTE"/>
+                    <item value="RISTORATORE"/>
+                    <item value="AMMINISTRATORE"/>
+                  </model>
+                </properties>
               </component>
             </children>
           </grid>

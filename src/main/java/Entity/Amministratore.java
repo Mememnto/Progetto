@@ -4,23 +4,23 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
-//@DiscriminatorValue("AMMINISTRATORE")
+@Entity
+@DiscriminatorValue("AMMINISTRATORE")
 public class Amministratore extends Utente {
-    //@ManyToMany(fetch = FetchType.LAZY)
-    //@JoinTable(
-    //    name = "amministratore_ristorante",
-    //    joinColumns = @JoinColumn(name = "idAmministratore"),
-    //    inverseJoinColumns = @JoinColumn(name = "id_Ristorante")
-    //)
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "amministratore_ristorante",
+        joinColumns = @JoinColumn(name = "idAmministratore"),
+        inverseJoinColumns = @JoinColumn(name = "id_Ristorante")
+    )
     private List<Ristorante> ristorantiConsiderati;
 
-    //@ManyToMany(fetch = FetchType.LAZY)
-    //@JoinTable(
-    //    name = "amministratore_ordine",
-    //    joinColumns = @JoinColumn(name = "idAmministratore"),
-    //    inverseJoinColumns = @JoinColumn(name = "idOrdine")
-    //)
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "amministratore_ordine",
+        joinColumns = @JoinColumn(name = "idAmministratore"),
+        inverseJoinColumns = @JoinColumn(name = "idOrdine")
+    )
     private List<Ordine> ordiniConsiderati;
 
     // Costruttore senza parametri (richiesto da JPA)
@@ -28,8 +28,8 @@ public class Amministratore extends Utente {
         super();
     }
 
-    public Amministratore(String nome, String cognome, String email, String ruolo, String via, int civico, String citta, int cap) {
-        super(nome, cognome, email, ruolo, via, civico, citta, cap);
+    public Amministratore(String nome, String cognome, String email, String ruolo, String via, String civico, String citta, int cap) {
+        super(nome, cognome, email, ruolo, via, civico, cap, citta);
         this.ristorantiConsiderati = new ArrayList<>();
         this.ordiniConsiderati = new ArrayList<>();
     }

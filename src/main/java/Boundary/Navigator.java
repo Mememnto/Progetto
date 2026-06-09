@@ -68,6 +68,15 @@ public class Navigator extends JFrame {
         return nomeRistorante;
     }
 
+    // Metodo generico e ricorsivo per pulire i campi di qualsiasi pannello/form
+    public static void clearFields(Container container) {
+        if (container == null) return;
+        for (Component c : container.getComponents()) {
+            if (c instanceof JTextField) ((JTextField) c).setText("");
+            else if (c instanceof JComboBox && ((JComboBox<?>) c).getItemCount() > 0) ((JComboBox<?>) c).setSelectedIndex(0);
+            else if (c instanceof Container) clearFields((Container) c);
+        }
+    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Navigator::new);

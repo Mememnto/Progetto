@@ -14,7 +14,7 @@ public class Indirizzo {
     private String via;
 
     @Column(name = "numeroCivico")
-    private int numeroCivico;
+    private String numeroCivico;
 
     @Column(name = "citta")
     private String citta;
@@ -26,24 +26,24 @@ public class Indirizzo {
     public Indirizzo() {
     }
 
-    public Indirizzo(String via, int civico, String citta, int cap) {
+    public Indirizzo(String via, String civico, int cap, String citta) {
         this.via = via;
         this.numeroCivico = civico;
-        this.citta = citta;
         this.CAP = cap;
+        this.citta = citta;
     }
 
     public String getVia() {
         return via;
     }
-    public int getCivico() {
+    public String getCivico() {
         return numeroCivico;
     }
     public String getCitta() { return citta; }
     public int getCap() { return CAP; }
 
     public void setVia(String via) {this.via = via;}
-    public void setNumeroCivico(int numeroCivico) {this.numeroCivico = numeroCivico;}
+    public void setNumeroCivico(String numeroCivico) {this.numeroCivico = numeroCivico;}
     public void setCitta(String citta) {this.citta = citta;}
     public void setCAP(int CAP) {this.CAP = CAP;}
 

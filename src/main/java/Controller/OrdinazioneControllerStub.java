@@ -80,7 +80,7 @@ public class OrdinazioneControllerStub {
          String civico = parts[1].trim();
          String cap = parts[2].trim();
          String citta = parts[3].trim();
-            return new Indirizzo(via, Integer.parseInt(civico), citta, Integer.parseInt(cap));
+            return new Indirizzo(via, civico,Integer.parseInt(cap), citta);
     }
 
 }

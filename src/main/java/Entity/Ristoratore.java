@@ -4,11 +4,11 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
-//@DiscriminatorValue("RISTORATORE")
+@Entity
+@DiscriminatorValue("RISTORATORE")
 public class Ristoratore extends Utente {
 
-    //@OneToMany(mappedBy = "ristoratoreResponsabile", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "ristoratoreResponsabile", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Ristorante> ristorantiGestiti;
 
     // Costruttore senza parametri (richiesto da JPA)
@@ -16,8 +16,8 @@ public class Ristoratore extends Utente {
         super();
     }
 
-    public Ristoratore(String nome, String cognome, String email, String ruolo, String via, int civico, String citta, int cap) {
-        super(nome, cognome, email, ruolo, via, civico, citta, cap);
+    public Ristoratore(String nome, String cognome, String email, String ruolo, String via, String civico, int cap, String citta) {
+        super(nome, cognome, email, ruolo, via, civico, cap,citta);
         this.ristorantiGestiti = new ArrayList<>();
     }
 

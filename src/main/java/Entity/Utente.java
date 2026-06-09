@@ -35,12 +35,12 @@ public abstract class Utente {
     public Utente() {
     }
 
-    public Utente(String nome, String cognome, String email, String ruolo, String via, int civico, String citta, int cap) {
+    public Utente(String nome, String cognome, String email, String ruolo, String via, String civico, int cap, String citta) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
         this.ruolo = ruolo;
-        this.indirizzo = new Indirizzo(via, civico, citta, cap);
+        this.indirizzo = new Indirizzo(via, civico, cap, citta);
     }
 
     public Long getId() {

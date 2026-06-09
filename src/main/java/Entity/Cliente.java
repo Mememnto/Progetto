@@ -40,8 +40,8 @@ public class Cliente extends Utente {
         super();
     }
 
-    public Cliente(String nome, String cognome, String email, String ruolo, String via, int civico, String citta, int cap) {
-        super(nome, cognome, email, ruolo, via, civico, citta, cap);
+    public Cliente(String nome, String cognome, String email, String ruolo, String via, String civico, int cap,String citta) {
+        super(nome, cognome, email, ruolo, via, civico, cap, citta);
         this.ordiniEffettuati = new ArrayList<>();
         //this.ristorantiDisponibili = new ArrayList<>();
     }

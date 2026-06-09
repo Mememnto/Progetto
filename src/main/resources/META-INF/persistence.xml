@@ -14,6 +14,9 @@
 
         <!-- Inserire le entity del progetto -->
         <class>Entity.Utente</class>
+        <class>Entity.Cliente</class>
+        <class>Entity.Ristoratore</class>
+        <class>Entity.Amministratore</class>
         <class>Entity.Ristorante</class>
         <class>Entity.Piatto</class>
         <class>Entity.Ordine</class>
@@ -41,6 +44,7 @@
 
             <property name="hibernate.hbm2ddl.auto"
                       value="update"/>
+            <!-- create per droppare le tabelle create nella scorsa esecuzione e ricrearle ex-novo-->
 
             <!-- Visualizza i log di hibernate su console se posta a "true" -->
             <property name="hibernate.show_sql"
