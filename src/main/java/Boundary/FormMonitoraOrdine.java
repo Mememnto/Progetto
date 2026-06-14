@@ -1,7 +1,8 @@
-package Boundary.FormMonitoraOrdine;
+package Boundary;
 
 import Boundary.Navigator;
 import Controller.MonitoraOrdineController;
+import Database.Session;
 import Entity.Cliente;
 import Entity.Ordine;
 import com.intellij.uiDesigner.core.GridConstraints;
@@ -98,7 +99,7 @@ public class FormMonitoraOrdine {
 
 
     public void caricaOrdiniCliente() {
-        Cliente cliente = navigator.getClienteLoggato();
+        Cliente cliente = (Cliente) Session.getInstance().getUtenteLoggato();
 
         if (cliente == null) {
             lblMessaggio.setText("Nessun utente autenticato!");
@@ -140,7 +141,7 @@ public class FormMonitoraOrdine {
 
 
     private void monitoraOrdineSelezionato() {
-        Cliente cliente = navigator.getClienteLoggato();
+        Cliente cliente = (Cliente) Session.getInstance().getUtenteLoggato();
         if (cliente == null) {
             JOptionPane.showMessageDialog(
                     contentPane,
